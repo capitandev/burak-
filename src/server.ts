@@ -1,4 +1,4 @@
-/*console.log("Exucuted"); 
+console.log("Exucuted"); 
 
 import moment from 'moment';
  const currentTime = moment().format ("YYYY MM DD");
@@ -6,7 +6,7 @@ import moment from 'moment';
 
 const person: string = "ALex";
  const count: number = 100;
-*/
+
 /*
 //Architectoral pattern : MVC, DI, MVP
 Architectoral pattern -> Bu butin bir malumotlar oqimini tartibga soladigan arxitektural vosita

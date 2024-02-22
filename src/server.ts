@@ -6,12 +6,12 @@ import moment from 'moment';
 
 const person: string = "ALex";
  const count: number = 100;
-
+ 
 /*
 //Architectoral pattern : MVC, DI, MVP
 Architectoral pattern -> Bu butin bir malumotlar oqimini tartibga soladigan arxitektural vosita
 Backenda -> Beckendning suyagi
 
 // Design Patern: Middkleware, Decotar
-Design Patern: Esa loiohadagi ma'lum bir bo'lagini taribga solishda ishlatiladigan vosita 
+Design Patern: Esa loiahadagi ma'lum bir bo'lagini taribga solishda ishlatiladigan vosita 
 */

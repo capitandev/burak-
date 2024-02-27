@@ -2,6 +2,8 @@
 
 import express, { Request, Response } from "express";
 import { T } from "../libs/types/common";
+import MenberService from "../modules/member.service"
+
 
 const restaurantController: T = {};
 restaurantController.goHome = (req: Request, res: Response) => {

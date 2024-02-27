@@ -13,7 +13,7 @@
         "*": ["node_modules/*"]
       }
     },
-    "include": ["src/**/*.ts"],
+    "include": ["src/**/*.ts", "router.ts", "routerAdmin.ts"],
     "exclude": ["node_modules"]
   
 }

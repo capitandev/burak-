@@ -3,8 +3,8 @@
 import express, { Request, Response } from "express";
 import { T } from "../libs/types/common";
 
-const memberController: T = {};
-memberController.goHome = (req: Request, res: Response) => {
+const restaurantController: T = {};
+restaurantController.goHome = (req: Request, res: Response) => {
     try {
         res.send(`You are Homepage Page `);
     } catch (err) {
@@ -13,7 +13,7 @@ memberController.goHome = (req: Request, res: Response) => {
 
 }
 
-memberController.getLogin = (req: Request, res: Response) => {
+restaurantController.getLogin = (req: Request, res: Response) => {
     try {
         res.send(`You are Login Page `);
     } catch (err) {
@@ -21,7 +21,7 @@ memberController.getLogin = (req: Request, res: Response) => {
     }
 
 }
-memberController.getSiginup = (req: Request, res: Response) => {
+restaurantController.getSiginup = (req: Request, res: Response) => {
     try {
         res.send(`You are Siginup Page `);
     } catch (err) {
@@ -29,4 +29,4 @@ memberController.getSiginup = (req: Request, res: Response) => {
     }
 
 }
-export default memberController;
+export default restaurantController;

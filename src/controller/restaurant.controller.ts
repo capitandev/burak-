@@ -2,7 +2,7 @@
 
 import express, { Request, Response } from "express";
 import { T } from "../libs/types/common";
-import MenberService from "../modules/member.service"
+import MenberService from "../modules/Member.service"
 
 
 const restaurantController: T = {};

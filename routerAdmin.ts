@@ -8,5 +8,5 @@ routerAdmin.get(`/`,restaurantController.goHome)
 //login 
 routerAdmin.get(`/login`,restaurantController.getLogin) 
 //sigin up
-routerAdmin.get(`/siginup`,restaurantController.getSiginup) 
+routerAdmin.get(`/signup`,restaurantController.getSignup) 
 export default routerAdmin;

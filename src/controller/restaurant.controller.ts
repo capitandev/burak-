@@ -23,11 +23,11 @@ restaurantController.getLogin = (req: Request, res: Response) => {
     }
 
 }
-restaurantController.getSiginup = (req: Request, res: Response) => {
+restaurantController.getSignup = (req: Request, res: Response) => {
     try {
-        res.send(`You are Siginup Page `);
+        res.send(`You are Signup Page `);
     } catch (err) {
-        console.log(`Error , goSiginup page`, err);
+        console.log(`Error , goSignup page`, err);
     }
 
 }

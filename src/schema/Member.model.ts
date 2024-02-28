@@ -1,14 +1,12 @@
-import mongoose,{Schema} from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import { MemberStatus, MemberType } from "../libs/enums/member.enum";
 
-const memberSchema = new Schema ({
-    //defination
+const memberSchema = new Schema({
+    
     memberType: {
         type: String,
         enum: MemberType,
         default: MemberType.USER
-
-
     },
 
     memberStatus: {
@@ -17,44 +15,41 @@ const memberSchema = new Schema ({
         default: MemberStatus.ACTIVE
     },
 
-    MemberNick: {
+    memberNick: {
         type: String,
-        index: {unique:true, sparse:true},
-        required:true
+        index: { unique: true, sparse: true },
+        required: true
     },
 
-    MemberPhone: { 
-        type: String,// Nega number emas? 
-        index: {unique:true, sparse:true},
-        required:true
-    },
-    
-    MemberPassword: {
+    memberPhone: {
         type: String,
-        select:false,// db dan datani olma fals qiymat ber
-        required:true
+        index: { unique: true, sparse: true },
+        required: true
     },
-    MemberImage: {
+
+    memberPassword: {
         type: String,
+        select: false,
+        required: true
     },
-    MemberPoints: {
+
+    memberImage: {
+        type: String
+    },
+
+    memberPoints: {
         type: Number,
-        default: 0,
+        default: 0
     },
 
-
-    MemberAddress: {
-        type: String,
+    memberAddress: {
+        type: String
     },
-    
-    MemberDesc: {
-        type: String,
-    }, 
-    
-},
 
-{timestamps:true}//UpdateAt, CreatedAt
-    
-) ;
+    memberDesc: {
+        type: String
+    }
 
-export default mongoose.model(`Member`,memberSchema)
+}, { timestamps: true });
+
+export default mongoose.model(`Member`, memberSchema);

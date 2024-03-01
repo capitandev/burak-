@@ -5,14 +5,13 @@ import { MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
 
 const restaurantController: T = {};
-
 restaurantController.goHome = (req: Request, res: Response) => {
   try {
     console.log("goHome");
     res.send("Home Page");
     // Response types => send | json | redirect | end | render
   } catch (err) {
-    console.log("Error, Homapge", err);
+    console.log("Error, goHome", err);
   }
 };
 
@@ -21,25 +20,25 @@ restaurantController.getLogin = (req: Request, res: Response) => {
     console.log("getLogin");
     res.send("Login Page");
   } catch (err) {
-    console.log("Error, Login Page", err);
+    console.log("Error, getLogin", err);
   }
 };
 
 restaurantController.getSignup = (req: Request, res: Response) => {
   try {
     console.log("getSignup");
-    res.send("SignUp");
+    res.send("Signup Page");
   } catch (err) {
-    console.log("Error, SiginUp Page", err);
+    console.log("Error, getSignup", err);
   }
 };
 
 restaurantController.processLogin = (req: Request, res: Response) => {
   try {
     console.log("processLogin");
-    res.send("Done");
+    res.send("DONE");
   } catch (err) {
-    console.log("Error, Login procress", err);
+    console.log("Error, processLogin", err);
   }
 };
 
@@ -54,7 +53,7 @@ restaurantController.processSignup = async (req: Request, res: Response) => {
     const result = await memberService.processSignup(newMember);
     res.send(result);
   } catch (err) {
-    console.log("Error, SignUp", err);
+    console.log("Error, processSignup", err);
     res.send(err);
   }
 };

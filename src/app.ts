@@ -2,7 +2,8 @@ import express from "express";
 import path from "path";
 import router from "../router";
 import routerAdmin from "../routerAdmin";
-
+import morgan from "morgan";
+import { MORGAN_FORMAT } from "./libs/types/config";
 /**  1-ENTERANCE **/
 
             const app = express();
@@ -20,8 +21,8 @@ import routerAdmin from "../routerAdmin";
 
 /**  4-ROUTERS **/
 
-    app.use("/admin", routerAdmin);  //SSR:EJS
-    app.use("/",router);            // SPA:REACT
+    app.use("/admin", routerAdmin);  //BSSR: EJS => For Admin
+    app.use("/",router);            // SPA: REACT => Public
 
     //app.use("/",router); //MiddLewaral Design Pattern
 

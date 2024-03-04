@@ -14,6 +14,9 @@ export enum HttpCode {
     NOT_DATA_FOUND = "No data is found!",
     CREATE_FAILED = "Create is failed!",
     UPDATE_FAILED = "Update is failed!",
+    NOT_MEMBER_NICK = "No member with that member nick name !",
+    USED_NICK_PHONE = "You are inserting alredy nick name ore  phone number !",
+    WRONG_PASSWORD = "Wrong password!"
   }
   
   class Errors extends Error {

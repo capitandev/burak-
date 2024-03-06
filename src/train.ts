@@ -24,23 +24,6 @@ console.log("Hello Mentor!");
   }
   console.log(getDigits("m14i1t")); // => 141
   
-  
-/* Project Standards:
-  - Logging standards
-  - Naming standards
-     function, method, variable => CAMEL case
-     class => PASKAL case
-     folder, file => KEBAB case
-     css => SNAKE case
-  - Error handling
-*/
-
-/* Api turlari:
-  Traditional Api
-  Rest Api
-  GraphQL Api
-  ...
-*/
 // getPositive nomli funksiya yaratiladi.
 // Bu funksiya musbat sonlarni olib, ularni bir string sifatida qaytaradi.
 // const getPositive = (arr: number[]): string => {

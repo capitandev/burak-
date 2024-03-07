@@ -3,27 +3,26 @@ import path from "path";
 import router from "./router";
 import routerAdmin from "./routeradmin";
 import morgan from "morgan";
-import { MORGAN_FORMAT } from "./libs/types/config";
-/**  1-ENTERANCE **/
+import { MORGAN_FORAMAT } from "./libs/types/config";
 
-            const app = express();
-            console.log("dirname:", __dirname);
-            app.use(express.static(path.join(__dirname, "public")));
-            app.use(express.urlencoded({ extended: true }));
-            app.use(express.json());
+/**  1-ENTRANCE **/
 
-/**  2-SESSIONS **/
+const app = express();
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(morgan(MORGAN_FORAMAT));
 
-/**  3-VIEWS **/
+/**  2- SESSIONS **/
 
-        app.set("view", path.join(__dirname, "views"));
-        app.set("view engine", "ejs");
+/**  3- VIEWS **/
 
-/**  4-ROUTERS **/
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
-    app.use("/admin", routerAdmin);  //BSSR: EJS => For Admin
-    app.use("/",router);            // SPA: REACT => Public
+/**  4- ROUTERS **/
 
-    //app.use("/",router); //MiddLewaral Design Pattern
+app.use("/admin", routerAdmin); //  SSR
+app.use("/", router); //  SPA
 
 export default app;

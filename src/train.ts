@@ -1,28 +1,55 @@
 console.log("Hello Mentor!");
 
+class Main {
+  public static main(): void {
+      const sentence: string = "I come from Uzbekistan";
+      const longestWord: string = Main.findLongestWord(sentence);
+      console.log(longestWord);
+  }
 
-  // ------------------------------ I-Task --------------------------
-  /* 1-getDigits nomli funksiya berilgan inputString ichidagi raqamlarni ajratib oladi va yangi bir string sifatida qaytaradi.
-    2-result nomli bo'sh string yaratiladi.
-    3-inputString ning har birni tekshirish amalga oshiriladi.
-    4-Agar belgi raqam bo'lsa (!isNaN(parseInt(char)) orqali), uni result stringiga qo'shadi.
-    5-Natijani qaytaradi.
-    */
+  public static findLongestWord(sentence: string): string {
+      const words: string[] = sentence.split(" ");
+      let longestWord: string = "";
+      let maxLength: number = 0;
 
-    function getDigits(inputString: string): string {
-      // Qabul qilingan stringdagi raqamlarni saqlash uchun bo'sh string
-      let result = '';
-  
-      // Qabul qilingan stringni har birni tekshiramiz
-      for (let char of inputString) {
-          // Agar berilgan raqam bo'lsa, uni natijaga qo'shamiz
-          if (!isNaN(parseInt(char))) {
-              result += char;
+      for (const word of words) {
+          if (word.length > maxLength) {
+              maxLength = word.length;
+              longestWord = word;
           }
       }
-      return result;
+
+      return longestWord;
   }
-  console.log(getDigits("m14i1t")); // => 141
+}
+
+Main.main();
+
+
+
+
+  // // ------------------------------ I-Task --------------------------
+  // /* 1-getDigits nomli funksiya berilgan inputString ichidagi raqamlarni ajratib oladi va yangi bir string sifatida qaytaradi.
+  //   2-result nomli bo'sh string yaratiladi.
+  //   3-inputString ning har birni tekshirish amalga oshiriladi.
+  //   4-Agar belgi raqam bo'lsa (!isNaN(parseInt(char)) orqali), uni result stringiga qo'shadi.
+  //   5-Natijani qaytaradi.
+  //   */
+
+  //   function getDigits(inputString: string): string {
+  //     // Qabul qilingan stringdagi raqamlarni saqlash uchun bo'sh string
+  //     let result = '';
+  
+  //     // Qabul qilingan stringni har birni tekshiramiz
+  //     for (let char of inputString) {
+  //         // Agar berilgan raqam bo'lsa, uni natijaga qo'shamiz
+  //         if (!isNaN(parseInt(char))) {
+  //             result += char;
+  //         }
+  //     }
+  //     return result;
+  // }
+  // console.log(getDigits("m14i1t")); // => 141
   
 // getPositive nomli funksiya yaratiladi.
 // Bu funksiya musbat sonlarni olib, ularni bir string sifatida qaytaradi.

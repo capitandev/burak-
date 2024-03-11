@@ -1,74 +1,112 @@
-console.log("Hello Mentor!");
-// // ------------------------------ K-Task --------------------------
+/* Project Standards:
+  - Logging standards
+  - Naming standards
+     function, method, variable => CAMEL case
+     class => PASKAL case
+     folder, file => KEBAB case
+     css => SNAKE case
+  - Error handling
+*/
 
-class Main {
-  public static main(): void {
-      const sentence: string = "I come from Uzbekistan";
-      const longestWord: string = Main.findLongestWord(sentence);
-      console.log(longestWord);
-  }
+/* Api turlari:
+  Traditional Api
+  Rest Api
+  GraphQL Api
+  ...
+*/
 
-  public static findLongestWord(sentence: string): string {
-      const words: string[] = sentence.split(" ");
-      let longestWord: string = "";
-      let maxLength: number = 0;
-
-      for (const word of words) {
-          if (word.length > maxLength) {
-              maxLength = word.length;
-              longestWord = word;
-          }
-      }
-
-      return longestWord;
-  }
-}
-
-Main.main();
-
-
-
-
-  // // ------------------------------ I-Task --------------------------
-  // /* 1-getDigits nomli funksiya berilgan inputString ichidagi raqamlarni ajratib oladi va yangi bir string sifatida qaytaradi.
-  //   2-result nomli bo'sh string yaratiladi.
-  //   3-inputString ning har birni tekshirish amalga oshiriladi.
-  //   4-Agar belgi raqam bo'lsa (!isNaN(parseInt(char)) orqali), uni result stringiga qo'shadi.
-  //   5-Natijani qaytaradi.
-  //   */
-
-  //   function getDigits(inputString: string): string {
-  //     // Qabul qilingan stringdagi raqamlarni saqlash uchun bo'sh string
-  //     let result = '';
+/* Frontend Development
+  Traditional FD  => BSSR (Admin pageni shu orqai quramiz)=> EJS
+  Modern FD       => SPA(Users' pageni shu usulda quramiz.)  => REACT
   
-  //     // Qabul qilingan stringni har birni tekshiramiz
-  //     for (let char of inputString) {
-  //         // Agar berilgan raqam bo'lsa, uni natijaga qo'shamiz
-  //         if (!isNaN(parseInt(char))) {
-  //             result += char;
-  //         }
-  //     }
-  //     return result;
-  // }
-  // console.log(getDigits("m14i1t")); // => 141
-  
-// getPositive nomli funksiya yaratiladi.
-// Bu funksiya musbat sonlarni olib, ularni bir string sifatida qaytaradi.
-// const getPositive = (arr: number[]): string => {
-//     // res o'zgaruvchisi, funksiya natijasini saqlash uchun ishlatiladi.
-//     let res: string = "";
-//     // For loop yordamida, berilgan har bir elementini tekshiriladi.
-//     for (let i = 0; i < arr.length; i++) {
-//         // Agar ro'yxatdagi element musbat bo'lsa:
-//         if (arr[i] > 0) {
-//             // Natijadagi sonni stringga o'tkazib, res ga qo'shiladi.
-//             res += arr[i].toString();
-//         }
+*/
+
+/* Cookies:
+   request join
+   self destroy
+*/
+
+/* Validations:
+   Frontend validation
+   Backend validation
+   Database validation
+*/
+
+// K-TASK
+const countVowels = (str: string) => {
+  let count = 0;
+  const vowels = ["a", "e", "i", "o", "u"];
+  str = str.toLowerCase();
+  const charArray = str.split("");
+  for (let i = 0; i < charArray.length; i++) {
+    if (vowels.includes(charArray[i])) {
+      count++;
+    }
+  }
+  return count;
+};
+const result = countVowels("MuhammadAli");
+console.log(result);
+// // J-TASK
+// const findLongestWord = (str: string) => {
+//   const words = str.split(" ");
+//   let result = words[0];
+//   for (let i = 1; i < words.length; i++) {
+//     if (words[i].length > result.length) {
+//       result = words[i];
 //     }
-//     // Natijadagi string qaytariladi.
-//     return res;
+//   }
+//   return result;
+// };
+// const res = findLongestWord("I am from Uzbekistan");
+// console.log(res);
+
+// // I-TASK
+// const getDigits = (str: string) => {
+//   let result: string = "";
+//   for (let i = 0; i < str.length; i++) {
+//     if (!isNaN(+str[i])) {
+//       result += str[i];
+//     }
+//   }
+//   return result;
 // };
 
-// // Faqat musbat sonlar 1, 2, 4, 8 qaytarilishi kerak. Natija "1248" stringi bo'ladi.
-// const result = getPositive([1, 2, -3, 4, -6, 8, 0, -1, -4, -8]);
-// console.log(result); // => 1248
+// const res = getDigits("m14i1t");
+// console.log("res:", res);
+
+// // H-TASK
+// const getPositive = (arr: number[]) => {
+//   let res: string = "";
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] >= 0) {
+//       res += arr[i];
+//     }
+//   }
+//   return res;
+// };
+
+// const result = getPositive([1, 2, 3, 4, 0, -1, -4, 6, -8]);
+// console.log(result);
+
+// // Sezer challenge
+// const alphabet = "abcdefghijklmnopqrstuvwxyz";
+// let code = 2;
+// let message = "hello, how are you doing, my general?";
+// const decodeMessage = (message: string, secret: number) => {
+//   const result = message.replace(/[a-z]/gi, (char) => {
+//     const index = alphabet.indexOf(char.toLowerCase());
+//     const newIndex = (index + secret + alphabet.length) % alphabet.length;
+//     const decodedChar = alphabet[newIndex];
+//     return decodedChar;
+//   });
+//   return result;
+// };
+// const secret_msg = decodeMessage(message, code);
+// console.log("Secret Message =>", secret_msg);
+
+// setTimeout(() => {
+//   code *= -1;
+//   const message_encoded = decodeMessage(secret_msg, code);
+//   console.log("Original Message => ", message_encoded);
+// }, 5000);

@@ -99,13 +99,5 @@ restaurantController.checkAuthSession = async (req: AdminRequest, res: Response)
   }
 };
 
-restaurantController.verifyRestaurant = async (req: AdminRequest, res: Response, next: NewableFunction) => {
-  if (req.session?.member?.memberType === MemberType.RESTAURANT) {
-    req.member = req.session.member;
-    next();
-  } else {
-    const message = Message.NOT_AUTHENCTICATED;
-    res.send(`<script>alert("${message}"); window.location.replace('/admin/login');</script>`);
-  }
-};
+
 export default restaurantController;

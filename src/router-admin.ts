@@ -18,6 +18,7 @@ routerAdmin.get("/check-me", restaurantController.checkAuthSession);
 routerAdmin.get("/product/all", restaurantController.verifyRestaurant, productController.getAllProducts);
 routerAdmin.post(
   "/product/create",
+  
   restaurantController.verifyRestaurant,
   makeUploader("products").array("productImages", 5),
   //   uploadProductImage.single("productImage"),

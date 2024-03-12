@@ -99,5 +99,13 @@ restaurantController.checkAuthSession = async (req: AdminRequest, res: Response)
   }
 };
 
-
+restaurantController.verifyRestaurant = async (req: AdminRequest, res: Response, next: NewableFunction) => {
+    if (req.session?.member?.memberType === MemberType.RESTAURANT) {
+      req.member = req.session.member;
+      next(); // midelvareda next qoy'ish sgart keyingi pagega borish uchun
+    } else {
+      const message = Message.NOT_AUTHENCTICATED;
+      res.send(`<script>alert("${message}"); window.location.replace('/admin/login');</script>`);
+    }
+  };
 export default restaurantController;

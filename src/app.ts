@@ -25,12 +25,12 @@ app.use(morgan(MORGAN_FORMAT));
 /**  2-SESSIONS **/
 app.use(
   session({
-    secret: String(process.env.SESSION_SECRET), // => secretni .env filedan olyapmiz
+    secret: String(process.env.SESSION_SECRET), // =>  .env filedan olyapmiz
     cookie: {
-      maxAge: 1000 * 3600 * 6, // 6 hours  => cookie qancha vaqt saqlanishini belgilayapmiz
+      maxAge: 1000 * 3600 * 6, // 6 hours  =
     },
     store: store, // => store ga biz yuqorida yasagan mongoDBdagi sessions collectionni beryapmiz.
-    resave: true, // => cookieimiz 3 soat mobaynida saqlanar edi. Shu oraliqda user qayta kirsa osha kirgan vaqtidan boshlab yana 3 soatni hisoblaydi. false boladigan bolsa, har kirganida update bolmaydi birinchi kirgan vaqti boyicha hisoblaydi.
+    resave: true, // => cookieimiz 3 soat mobaynida saqlanadi agar false boladigan bolsa, har kirganida update bolmaydi birinchi kirgan vaqti boyicha hisoblaydi.
     saveUninitialized: true,
   })
 );

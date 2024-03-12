@@ -1,15 +1,13 @@
 import express from "express";
-import dotenv from "dotenv";
 import path from "path";
 import router from "./router";
-import routerAdmin from "./routeradmin";
+import routerAdmin from "./router-admin";
 import morgan from "morgan";
-import { MORGAN_FORAMAT } from "./libs/config";
+import { MORGAN_FORMAT } from "./libs/config";
 
 import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
 import { T } from "./libs/types/common";
-
 
 const MongoDBStore = ConnectMongoDB(session);
 const store = new MongoDBStore({
@@ -22,7 +20,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(morgan(MORGAN_FORAMAT));
+app.use(morgan(MORGAN_FORMAT));
 
 /**  2-SESSIONS **/
 app.use(

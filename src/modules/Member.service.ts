@@ -12,7 +12,7 @@ class MemberService {
 
   /* SPA */
 
-  public async signup(input: MemberInput): Promise<Member> {
+  public async signUp(input: MemberInput): Promise<Member> {
     const salt = await bcrypt.genSalt();
     input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
 

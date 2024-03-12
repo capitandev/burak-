@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { ProductCollection, ProductSize, ProductStatus, ProductVolume } from "../libs/enums/product.enum";
+import { ProductCollection, ProductSize, ProductStatus, ProductVolume } from "../libs/enums/produc.enum";
 
 // Schema first & Code first. We are using Schema first
 const productSchema = new Schema(

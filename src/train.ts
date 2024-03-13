@@ -2,7 +2,7 @@
 
 
 
- console.log("Hello Mentor");
+ console.log("Hello ");
 
  function reverseSentence(sentence: string): string {
     const words = sentence.split(" ");

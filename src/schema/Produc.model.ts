@@ -60,6 +60,5 @@ const productSchema = new Schema(
   },
   { timestamps: true } // updatedAt, createdAt
 );
-
 productSchema.index({ productName: 1, productSize: 1, productVolume: 1 }, { unique: true });
 export default mongoose.model("Product", productSchema);

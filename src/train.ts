@@ -7,11 +7,9 @@ interface NumberSquare {
     number: number;
     square: number;
 }
-
 function getSquareNumbers(numbers: number[]): NumberSquare[] {
     return numbers.map(number => ({ number, square: Math.pow(number, 2) }));
 }
-
 // Test qilish
 console.log(getSquareNumbers([1, 2, 3, 4, 5])); 
 

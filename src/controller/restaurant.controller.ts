@@ -18,7 +18,6 @@ restaurantController.goHome = (req: Request, res: Response) => {
     res.redirect("/admin");
   }
 };
-
 restaurantController.getSignup = (
   req: Request, 
   res: Response) => {

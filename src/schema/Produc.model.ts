@@ -58,7 +58,7 @@ const productSchema = new Schema(
       default: 0,
     },
   },
-  { timestamps: true } // updatedAt, createdAt
+  { timestamps: true } // updatedAt, createdAt time
 );
 productSchema.index({ productName: 1, productSize: 1, productVolume: 1 }, { unique: true });
 export default mongoose.model("Product", productSchema);

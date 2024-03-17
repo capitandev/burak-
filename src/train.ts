@@ -1,17 +1,38 @@
+                                   
+                                   // ------ N - task -------------
+                                   
+const palindromCheck = (str: string) => {
+  // Berilgan matnni teskari qilish
+  const reversedStr = str.split("").reverse().join("");
+
+  // Teskari qilingan matin asl matn bilan solishtirib
+  // Agar ular bir xil bo'lsa, palindrom bo'lib qaytariladi, aks holda false
+  return str === reversedStr;
+};
+
+
+const result1 = palindromCheck("dad");
+console.log("palindromCheck1", result1); // true
+
+const result2 = palindromCheck("son");
+console.log("palindromCheck2", result2); // false
+
+                                   
+                                   
                                    // ------ L -task -------------
  /* NumberSquare interfeysini yaratamiz, bu interfeys raqam va kvadratini va ularning typelarini o'z ichiga oladi. 
  getSquareNumbers funksiyasi numbers nomli raqamlarni qabul qiladi va 2 ga ko'paytiradi. NumberSquare obyektlari numberning kvadratlarini qaytaradi.
   */                                  
 
-interface NumberSquare {
-    number: number;
-    square: number;
-}
-function getSquareNumbers(numbers: number[]): NumberSquare[] {
-    return numbers.map(number => ({ number, square: Math.pow(number, 2) }));
-}
-// Test qilish
-console.log(getSquareNumbers([1, 2, 3, 4, 5])); 
+// interface NumberSquare {
+//     number: number;
+//     square: number;
+// }
+// function getSquareNumbers(numbers: number[]): NumberSquare[] {
+//     return numbers.map(number => ({ number, square: Math.pow(number, 2) }));
+// }
+// // Test qilish
+// console.log(getSquareNumbers([1, 2, 3, 4, 5])); 
 
                                              
                                              // ------ K -task -------------

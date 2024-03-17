@@ -43,7 +43,9 @@ restaurantController.processSignup = async (req: AdminRequest, res: Response) =>
     newMember.memberImage = file?.path.replace(/\\/g, "/");
     newMember.memberType = MemberType.RESTAURANT;
     const result = await memberService.processSignup(newMember);
-    // SESSIONS AUTHENTICATION
+
+                                        // SESSIONS AUTHENTICATION
+
     req.session.member = result;
     req.session.save(function () {
       res.redirect("/admin/product/all");
@@ -59,7 +61,6 @@ restaurantController.processLogin = async (req: AdminRequest, res: Response) => 
     console.log("processLogin");
     const input: LoginInput = req.body;
     const result = await memberService.processLogin(input);
-    //SESSIONS AUTHENTICATION
     req.session.member = result;
     req.session.save(function () {
       res.redirect("/admin/product/all");

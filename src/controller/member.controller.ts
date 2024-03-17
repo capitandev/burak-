@@ -8,12 +8,14 @@ const memberService = new MemberService ();
 
 const memberController: T = {}
 
-memberController.signUp = async (req:  Request, res: Response) => {
+memberController.signup = async (req:  Request, res: Response) => {
     try{
         console.log("signUp");
 
-        const input: MemberInput = req.body,
-         result: Member = await memberService.signUp(input);
+        const input: MemberInput = req.body
+        const result: Member = await memberService.signup(input);
+
+
          // TODO: TOKEN AUTHENTCATION
 
         res.json({member: result});
@@ -22,6 +24,7 @@ memberController.signUp = async (req:  Request, res: Response) => {
         if(err instanceof Errors) res.status(err.code).json(err);
         else res.status(Errors.standard.code).json(Errors.standard);
     }
+
 };
 
 
@@ -39,6 +42,7 @@ memberController.login = async (req:  Request, res: Response) => {
         else res.status(Errors.standard.code).json(Errors.standard);
     }
 };
+
 
 
 export default memberController;

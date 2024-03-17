@@ -27,7 +27,7 @@ app.use(
   session({
     secret: String(process.env.SESSION_SECRET), // =>  .env filedan olyapmiz
     cookie: {
-      maxAge: 1000 * 3600 * 6, // 6 hours  =
+      maxAge: 1000 * 3600 * 6, // 6 hours  
     },
     store: store, // => store ga biz yuqorida yasagan mongoDBdagi sessions collectionni beryapmiz.
     resave: true, // => cookieimiz 3 soat mobaynida saqlanadi agar false boladigan bolsa, har kirganida update bolmaydi birinchi kirgan vaqti boyicha hisoblaydi.

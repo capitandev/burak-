@@ -4,9 +4,7 @@ import MemberService from "../modules/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
 import Errors, { HttpCode, Message } from "../libs/Errors";
-
 const memberService = new MemberService();
-
 const restaurantController: T = {};
 restaurantController.goHome = (req: Request, res: Response) => {
   try {
@@ -18,9 +16,7 @@ restaurantController.goHome = (req: Request, res: Response) => {
     res.redirect("/admin");
   }
 };
-restaurantController.getSignup = (
-  req: Request, 
-  res: Response) => {
+restaurantController.getSignup = (req: Request, res: Response) => {
   try {
     console.log("getSignup");
     res.render("signup");
@@ -29,7 +25,6 @@ restaurantController.getSignup = (
     res.redirect("/admin");
   }
 };
-
 restaurantController.getLogin = (req: Request, res: Response) => {
   try {
     console.log("getLogin");
@@ -39,21 +34,16 @@ restaurantController.getLogin = (req: Request, res: Response) => {
     res.redirect("/admin");
   }
 };
-
-restaurantController.processSignup = async (
-  req: AdminRequest, 
-  res: Response) => {
-    try {
-      console.log("processSignup");
-      const file = req.file;
-      if (!file) throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
-  
-      const newMember: MemberInput = req.body;
-      newMember.memberImage = file?.path.replace(/\\/g, "/");
-      newMember.memberType = MemberType.RESTAURANT;
-      const result = await memberService.processSignup(newMember);
-    //TODO: SESSIONS AUTHENTICATION
-
+restaurantController.processSignup = async (req: AdminRequest, res: Response) => {
+  try {
+    console.log("processSignup");
+    const file = req.file;
+    if (!file) throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
+    const newMember: MemberInput = req.body;
+    newMember.memberImage = file?.path.replace(/\\/g, "/");
+    newMember.memberType = MemberType.RESTAURANT;
+    const result = await memberService.processSignup(newMember);
+    // SESSIONS AUTHENTICATION
     req.session.member = result;
     req.session.save(function () {
       res.redirect("/admin/product/all");
@@ -64,14 +54,12 @@ restaurantController.processSignup = async (
     res.send(`<script>alert("${message}"); window.location.replace('admin/signup')</script>`);
   }
 };
-
 restaurantController.processLogin = async (req: AdminRequest, res: Response) => {
   try {
     console.log("processLogin");
     const input: LoginInput = req.body;
     const result = await memberService.processLogin(input);
-    //TODO: SESSIONS AUTHENTICATION
-
+    //SESSIONS AUTHENTICATION
     req.session.member = result;
     req.session.save(function () {
       res.redirect("/admin/product/all");
@@ -82,7 +70,6 @@ restaurantController.processLogin = async (req: AdminRequest, res: Response) => 
     res.send(`<script>alert("${message}"); window.location.replace('admin/login')</script>`);
   }
 };
-
 restaurantController.logout = async (req: AdminRequest, res: Response) => {
   try {
     console.log("logout");
@@ -92,6 +79,26 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
   } catch (err) {
     console.log("Error, logout", err);
     res.redirect("/admin");
+  }
+};
+
+restaurantController.getUsers = async (req: Request, res: Response) => {
+  try {
+    console.log("getUsers");
+    const result = await memberService.getUsers();
+
+    res.render("users", { users: result });
+  } catch (err) {
+    console.log("Error, getUsers", err);
+    res.redirect("/admin/login");
+  }
+};
+
+restaurantController.updateChosenUser = (req: Request, res: Response) => {
+  try {
+    console.log("updateChosenUser");
+  } catch (err) {
+    console.log("Error, updateChosenUser", err);
   }
 };
 
@@ -105,14 +112,13 @@ restaurantController.checkAuthSession = async (req: AdminRequest, res: Response)
     res.send(err);
   }
 };
-
 restaurantController.verifyRestaurant = async (req: AdminRequest, res: Response, next: NewableFunction) => {
-    if (req.session?.member?.memberType === MemberType.RESTAURANT) {
-      req.member = req.session.member;
-      next(); // midelvareda next qoy'ish kerak qoyilmasa keyingi pagega borish uchun
-    } else {
-      const message = Message.NOT_AUTHENCTICATED;
-      res.send(`<script>alert("${message}"); window.location.replace('/admin/login');</script>`);
-    }
-  };
+  if (req.session?.member?.memberType === MemberType.RESTAURANT) {
+    req.member = req.session.member;
+    next();
+  } else {
+    const message = Message.NOT_AUTHENCTICATED;
+    res.send(`<script>alert("${message}"); window.location.replace('/admin/login');</script>`);
+  }
+};
 export default restaurantController;

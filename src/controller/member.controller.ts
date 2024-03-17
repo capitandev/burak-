@@ -8,7 +8,7 @@ const memberService = new MemberService ();
 
 const memberController: T = {}
 
-memberController.signUp = async (req:  Request, res: Response) => {
+memberController.signup = async (req:  Request, res: Response) => {
     try{
         console.log("signUp");
 

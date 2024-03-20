@@ -1,21 +1,39 @@
                                    
-                                   // ------ N - task -------------
+                                   // ------ O - task -------------
+
+ function calculateSumOfNumbers(values: (number | string | boolean)[]): number {
+    let sum = 0;
+    for (const value of values) {
+        if (typeof value === 'number') {
+            sum += value as number; 
+        } else if (typeof value === 'string' && !isNaN(parseFloat(value as string))) {
+            sum += parseFloat(value as string); 
+        }
+    }
+    return sum;
+}
+
+console.log(calculateSumOfNumbers([10, "son 10", true, 25])); // 55
+                                  
+
+
+//                                                                     // ------ N - task -------------                              
                                    
-const palindromCheck = (str: string) => {
-  // Berilgan matnni teskari qilish
-  const reversedStr = str.split("").reverse().join("");
+// const palindromCheck = (str: string) => {
+//   // Berilgan matnni teskari qilish
+//   const reversedStr = str.split("").reverse().join("");
 
-  // Teskari qilingan matin asl matn bilan solishtirib
-  // Agar ular bir xil bo'lsa, palindrom bo'lib qaytariladi, aks holda false
-  return str === reversedStr;
-};
+//   // Teskari qilingan matin asl matn bilan solishtirib
+//   // Agar ular bir xil bo'lsa, palindrom bo'lib qaytariladi, aks holda false
+//   return str === reversedStr;
+// };
 
 
-const result1 = palindromCheck("dad");
-console.log("palindromCheck1", result1); // true
+// const result1 = palindromCheck("dad");
+// console.log("palindromCheck1", result1); // true
 
-const result2 = palindromCheck("son");
-console.log("palindromCheck2", result2); // false
+// const result2 = palindromCheck("son");
+// console.log("palindromCheck2", result2); // false
 
                                    
                                    

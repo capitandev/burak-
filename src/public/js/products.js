@@ -13,14 +13,38 @@ $(function() {
 
     $("#process-btn").on("click", function() {
         $(".dish-container").slideToggle(500);
-        $(this).hide(); // Hide the button after toggling the .dish-container
+        $("#process-btn").css("display","none");
     });
 
     $("#cancel-btn").on("click", function() {
         $(".dish-container").slideToggle(500); // Ensure consistent animation duration
-        $("#process-btn").show(); // Show the process button again
+        $("#process-btn").css("display","flex"); // Show the process button again
     });
 });
+$(".new-product-status").on("change", async function(e) {
+    const id = e.target.id;
+    const ProductStatus = $(`#${id}.new-product-status`).val(); // Fixed string interpolation
+    
+    console.log("id:", id);
+    console.log("productStatus:", ProductStatus);
+    
+    try {
+        const response = await axios.post(`/admin/product/${id}`, { productStatus: ProductStatus }); // Fixed string interpolation
+        console.log("response:", response);
+        
+        const result = response.data;
+        if (result.data) {
+            console.log("Product updated!");
+            $(".new-product-status").blur();
+        } else {
+            alert("Product update error!");
+        }
+    } catch (err) { // Fixed error variable name
+        console.log(err); // Fixed error variable name
+        alert("Product update failed!");
+    }
+});
+
 
 function validateForm() {
     const productName = $(".product-name").val();

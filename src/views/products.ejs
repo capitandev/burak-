@@ -54,7 +54,8 @@
       <td><%= product.productPrice %></td>
       <td><%= product.productLeftCount %></td>
       <td>
-        <select class="spec-select new-product-status" id="<%= product._id %>">
+        <select class="spec-select new-product-status" 
+        id="<%= product._id %>">
           <option value="PAUSE" <%= product.productStatus === "PAUSE" ? "selected" : '' %> >PAUSE</option>
           <option value="PROCESS"<%= product.productStatus === "PROCESS" ? "selected" : '' %>>PROCESS</option>
           <option value="DELETE"<%= product.productStatus === "DELETE" ? "selected" : '' %>>DELETE</option>

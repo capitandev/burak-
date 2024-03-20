@@ -60,7 +60,7 @@ console.log("palindromCheck2", result2); // false
 */
 
 /* Api turlari:
-  Traditional Api
+  Traditional Api (Html ni ozi methodlaridan foydalinb)
   Rest Api
   GraphQL Api
   ...

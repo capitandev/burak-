@@ -1,19 +1,28 @@
-                                   
+                                   // ------ P - task -------------
+ console.log("Hello Mentor ;)"); 
+function objectToArray(obj: { [key: string]: any }): [string, any][] {
+    return Object.entries(obj);
+}
+const obj: { [key: string]: any } = {a: 10, b: 20};
+const result: [string, any][] = objectToArray(obj);
+console.log(result); 
+
+
                                    // ------ O - task -------------
 
- function calculateSumOfNumbers(values: (number | string | boolean)[]): number {
-    let sum = 0;
-    for (const value of values) {
-        if (typeof value === 'number') {
-            sum += value as number; 
-        } else if (typeof value === 'string' && !isNaN(parseFloat(value as string))) {
-            sum += parseFloat(value as string); 
-        }
-    }
-    return sum;
-}
+//  function calculateSumOfNumbers(values: (number | string | boolean)[]): number {
+//     let sum = 0;
+//     for (const value of values) {
+//         if (typeof value === 'number') {
+//             sum += value as number; 
+//         } else if (typeof value === 'string' && !isNaN(parseFloat(value as string))) {
+//             sum += parseFloat(value as string); 
+//         }
+//     }
+//     return sum;
+// }
 
-console.log(calculateSumOfNumbers([10, "son 10", true, 25])); // 55
+// console.log(calculateSumOfNumbers([10, "son 10", true, 25])); // 55
                                   
 
 

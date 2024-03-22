@@ -17,16 +17,13 @@ $(function() {
     });
 
     $("#cancel-btn").on("click", function() {
-        $(".dish-container").slideToggle(500); // Ensure consistent animation duration
-        $("#process-btn").css("display","flex"); // Show the process button again
+        $(".dish-container").slideToggle(500); 
+        $("#process-btn").css("display","flex"); 
     });
 });
 $(".new-product-status").on("change", async function(e) {
     const id = e.target.id;
-    const ProductStatus = $(`#${id}.new-product-status`).val(); // Fixed string interpolation
-    
-    console.log("id:", id);
-    console.log("productStatus:", ProductStatus);
+    const ProductStatus = $(`#${id}.new-product-status`).val(); 
     
     try {
         const response = await axios.post(`/admin/product/${id}`, { productStatus: ProductStatus }); // Fixed string interpolation
@@ -39,8 +36,8 @@ $(".new-product-status").on("change", async function(e) {
         } else {
             alert("Product update error!");
         }
-    } catch (err) { // Fixed error variable name
-        console.log(err); // Fixed error variable name
+    } catch (err) {
+        console.log(err); 
         alert("Product update failed!");
     }
 });
@@ -70,9 +67,9 @@ function previewFileHandler(input, order) {
     console.log("input this:", input);
     console.log("imgClassName:", imgClassName);
 
-    const file = $(`.${imgClassName}`).get(0).files[0];
-    const fileType = file.type;
-    const validImageType = ["image/jpeg", "image/jpg", "image/png"];
+    const file = $(`.${imgClassName}`).get(0).files[0],
+     fileType = file.type,
+     validImageType = ["image/jpeg", "image/jpg", "image/png"];
     if (!validImageType.includes(fileType)) {
         alert("Please insert only jpeg, jpg, and png files");
     } else {

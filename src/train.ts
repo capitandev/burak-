@@ -1,11 +1,28 @@
-                                   // ------ P - task -------------
+                                   // ------ Q - task -------------
  console.log("Hello Mentor ;)"); 
-function objectToArray(obj: { [key: string]: any }): [string, any][] {
-    return Object.entries(obj);
-}
-const obj: { [key: string]: any } = {a: 10, b: 20};
-const result: [string, any][] = objectToArray(obj);
-console.log(result); 
+const hasProperty = (obj: { [key: string]: string }, str: string): boolean => {
+  const keys = Object.keys(obj);
+  
+  for (let i = 0; i < keys.length; i++) 
+    if (keys[i] === str) {
+      return true;
+    }
+  }
+  return false;
+};
+const result1: boolean = hasProperty({ name: "BMW", model: "M3" }, "model");
+console.log("result1 => ", result1);
+const result2: boolean = hasProperty({ name: "BMW", model: "M3" }, "year");
+console.log("result2 => ", result2);
+  
+                                      // ------ P - task -------------
+
+// function objectToArray(obj: { [key: string]: any }): [string, any][] {
+//     return Object.entries(obj);
+// }
+// const obj: { [key: string]: any } = {a: 10, b: 20};
+// const result: [string, any][] = objectToArray(obj);
+// console.log(result); 
 
 
                                    // ------ O - task -------------

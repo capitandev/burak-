@@ -1,6 +1,5 @@
                                    // ------ Q - task -------------
-
- console.log("Hello Mentor ;)");
+ console.log("Hello Mentor ;)"); 
 
 const hasProperty = (obj: { [key: string]: string }, str: string): boolean => {
   const keys = Object.keys(obj);
@@ -10,7 +9,6 @@ const hasProperty = (obj: { [key: string]: string }, str: string): boolean => {
       return true;
     }
   }
-  
   return false;
 };
 
@@ -20,10 +18,10 @@ console.log("result1 => ", result1);
 const result2: boolean = hasProperty({ name: "BMW", model: "M3" }, "year");
 console.log("result2 => ", result2);
 
-                                       // ------ P - task -------------
 
-//  console.log("Hello Mentor ;)"); 
-// function objectToArray(obj: { [key: string]: any }): [string, any][] {npm tr
+                                  // ------ P - task -------------
+
+// function objectToArray(obj: { [key: string]: any }): [string, any][] {
 //     return Object.entries(obj);
 // }
 // const obj: { [key: string]: any } = {a: 10, b: 20};

@@ -1,22 +1,30 @@
-                                   // ------ Q - task -------------
- console.log("Hello Mentor ;)"); 
+                                   // ------ R - task -------------
+ console.log("Hello Mentor :) ");
 
-const hasProperty = (obj: { [key: string]: string }, str: string): boolean => {
-  const keys = Object.keys(obj);
+ function calculate(expression: string): number {
+  const result = eval(expression);
+  return Number(result);
+}
+console.log(calculate("1+3")); 
+
+                                          // ------ Q - task -------------
+
+// const hasProperty = (obj: { [key: string]: string }, str: string): boolean => {
+//   const keys = Object.keys(obj);
   
-  for (let i = 0; i < keys.length; i++) {
-    if (keys[i] === str) {
-      return true;
-    }
-  }
-  return false;
-};
+//   for (let i = 0; i < keys.length; i++) {
+//     if (keys[i] === str) {
+//       return true;
+//     }
+//   }
+//   return false;
+// };
 
-const result1: boolean = hasProperty({ name: "BMW", model: "M3" }, "model");
-console.log("result1 => ", result1);
+// const result1: boolean = hasProperty({ name: "BMW", model: "M3" }, "model");
+// console.log("result1 => ", result1);
 
-const result2: boolean = hasProperty({ name: "BMW", model: "M3" }, "year");
-console.log("result2 => ", result2);
+// const result2: boolean = hasProperty({ name: "BMW", model: "M3" }, "year");
+// console.log("result2 => ", result2);
 
 
                                   // ------ P - task -------------

@@ -1,11 +1,39 @@
-                                   // ------ R - task -------------
- console.log("Hello Mentor :) ");
-
- function calculate(expression: string): number {
-  const result = eval(expression);
-  return Number(result);
+                                   // ------ S-TASK: - task -------------
+/**
+ * 
+ * @param nums : 
+ * 1-Ro'yxatda qancha raqam borligini aniqlab, uning 1 dan n gacha bo'lgan barcha raqamlarni qo'shib chiqib, umumiy yig'indini hisoblaymiz. 
+ * Bu uchun, n ning qiymatini olishimiz kerak.
+ * 2-Ro'yxatdagi barcha raqamlarni yig'indisini topib olamiz.
+ * 3-Berilgan ro'yxatdagi raqamlar orasida qaysi raqamning tushib qolganligini aniqlash uchun umumiy yig'indan ro'yxatdagi raqamlarning yig'indisini ayirib chiqamiz. 
+ * Bu bilan tushib qolgan sonni topamiz.
+ * 3-Aniqlangan tushib qolgan sonni return qilamiz.
+ * Berilgan ro'yxatdagi tushib qolgan sonni topish uchun missingNumber nomli funksiyasini yaratiamiz.
+ * U nums nomli number type li array qabul qilishi n ning uzunligini hisoblashi , raqamlarni yig'indisini va ro'yaxtadgi barcha raqamlar yig'indisini hisoblab ayirishi 
+ * va tushib qolgan sonni aniqlab return qaytarishi kerak.
+ * @returns : missing Number 
+ */
+function missingNumber(nums: number[]): number {
+    const n: number = nums.length;
+    const totalSum: number = (n * (n + 1)) / 2;
+    const actualSum: number = nums.reduce((acc, curr) => acc + curr, 0);
+    return totalSum - actualSum;
 }
-console.log(calculate("1+3")); 
+
+const nums: number[] = [3, 0, 1];
+console.log(missingNumber(nums)); 
+
+
+                                    // ------ R - task -------------
+
+
+//  console.log("Hello Mentor :) ");
+
+//  function calculate(expression: string): number {
+//   const result = eval(expression);
+//   return Number(result);
+// }
+// console.log(calculate("1+3")); 
 
                                           // ------ Q - task -------------
 
